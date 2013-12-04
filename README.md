@@ -12,7 +12,7 @@ You can customize the Animated Loader color (Provide a UIColor) and also you can
 2. `#import "RFLoader.h"`
 3. Create an instance of RFLoader:
 
-    RFLoader *customLoader = [[RFLoader alloc] init];
+    `RFLoader *customLoader = [[RFLoader alloc] init];`
     
 4.  `[customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:nil onView:self.view];`
 5.  If you prefer to use an image: 
