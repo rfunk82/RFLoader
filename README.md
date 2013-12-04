@@ -5,6 +5,12 @@ RFLoader provides a loading animation.
 
 You can customize the Animated Loader color (Provide a UIColor) and also you can choose from 3 different animations. You can also provide an image name and animate that image as a loader.  
 
+You can also remove the loader with 3 different animations:
+
+    removeLoader
+    removeLoaderWithSuccess:YES
+    removeLoaderWithSuccess:NO
+
 
 ## How To Get Started
 
