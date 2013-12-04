@@ -3,10 +3,23 @@ RFLoader
 
 RFLoader provides a loading animation.
 
+You can customize the Animated Loader color (Provide a UIColor) and also you can choose from 3 different animations. You can also provide an image name and animate that image as a loader.  
+
 
 ## How To Get Started
 
 1. Download RFLoader
+2. #import "RFLoader.h"
+3. Create an instance of RFLoader:
+
+    RFLoader *customLoader;
+    customLoader = [[RFLoader alloc] init];
+    
+4.  [customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:nil onView:self.view];
+5.  If you prefer to use an image: [customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:@"icon.png" onView:self.view];
+6.  To remove Loader: [customLoader removeLoader];
+
+![Animated Loader ](http://i.imgur.com/BatlLh1.png)
 
 
 Created By
