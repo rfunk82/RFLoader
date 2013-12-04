@@ -12,6 +12,7 @@
 @interface ViewController ()
 
 - (IBAction)showLoaderPressed:(id)sender;
+- (IBAction)showLoaderWithImage:(id)sender;
 - (IBAction)removeLoaderPressed:(id)sender;
 
 @end
@@ -43,5 +44,10 @@
 
 - (IBAction)removeLoaderPressed:(id)sender {
     [customLoader removeLoader];
+}
+
+- (IBAction)showLoaderWithImage:(id)sender {
+    
+    [customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:@"icon.png" onView:self.view];
 }
 @end
