@@ -14,6 +14,8 @@
 - (IBAction)showLoaderPressed:(id)sender;
 - (IBAction)showLoaderWithImage:(id)sender;
 - (IBAction)removeLoaderPressed:(id)sender;
+- (IBAction)removeLoaderWithSuccessPressed:(id)sender;
+- (IBAction)removeLoaderFailedPressed:(id)sender;
 
 @end
 
@@ -34,20 +36,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showLoaderWithImage:(id)sender {
+    
+    [customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:@"icon.png" onView:self.view];
+}
+
 - (IBAction)showLoaderPressed:(id)sender {
     
     //Animation: VERTICAL, HORIZONTAL, MIX
     //Color: Use UIColor
     
-    [customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:nil onView:self.view];
+    [customLoader showLoaderWithColor:[UIColor blueColor] andAnimation:LoaderMix andImage:nil onView:self.view];
 }
 
 - (IBAction)removeLoaderPressed:(id)sender {
     [customLoader removeLoader];
 }
 
-- (IBAction)showLoaderWithImage:(id)sender {
-    
-    [customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:@"icon.png" onView:self.view];
+- (IBAction)removeLoaderWithSuccessPressed:(id)sender {
+    [customLoader removeLoaderWithSuccess:YES];
 }
+
+- (IBAction)removeLoaderFailedPressed:(id)sender {
+    [customLoader removeLoaderWithSuccess:NO];
+}
+
+
 @end

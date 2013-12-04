@@ -26,5 +26,6 @@ typedef enum Loader : NSUInteger {
  * Remove loading animation
  */
 -(void)removeLoader;
+-(void)removeLoaderWithSuccess:(BOOL)success;
 
 @end

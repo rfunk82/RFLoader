@@ -12,6 +12,9 @@
 
 @implementation RFLoader {
     UIView *loader;
+    BOOL image;
+    UIColor *selectedColor;
+    UIView *selectedView;
 }
 
 static RFLoader *sharedInstance;
@@ -34,21 +37,25 @@ static RFLoader *sharedInstance;
     }
   
     imageName = [NSString stringWithFormat:@"%@",imageName];
-    loader = [[UIView alloc] initWithFrame:CGRectMake(160-12.5, 240-12.5, 25, 25)];
+    loader = [[UIView alloc] initWithFrame:CGRectMake(160-25, 240-25, 50, 50)];
+    selectedView = currentView;
     
     if (![imageName isEqualToString:@"(null)"]) {
         
-        
+        image = YES;
         UIImage *customImage = [UIImage imageNamed:imageName];
-        UIImageView *customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        UIImageView *customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
         customImageView.image = customImage;
         [loader addSubview:customImageView];
         
     } else {
  
+        image = NO;
         [loader setBackgroundColor:color];
-        loader.layer.cornerRadius = 12.5f;
+        selectedColor = color;
+        loader.layer.cornerRadius = 25;
         loader.clipsToBounds = YES;
+        
     }
     
     
@@ -97,6 +104,73 @@ static RFLoader *sharedInstance;
        
     }
 }
+
+-(void)removeLoaderWithSuccess:(BOOL)success {
+    
+    UILabel  *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [label setFont:[UIFont fontWithName:@"AmericanTypewriter-Bold" size:40]];
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor=[UIColor whiteColor];
+
+    if (loader) {
+         [loader removeFromSuperview];
+    }
+    
+    if (success) {
+        label.text = @"✓";
+        if (image) {
+            
+        } else {
+            loader = [[UIView alloc] initWithFrame:CGRectMake(160-25, 240-25, 50, 50)];
+            [loader setBackgroundColor:selectedColor];
+            loader.layer.cornerRadius = 25;
+            loader.clipsToBounds = YES;
+            [loader addSubview:label];
+            [loader setBackgroundColor:[UIColor greenColor]];
+            
+            [selectedView addSubview:loader];
+            [selectedView bringSubviewToFront:loader];
+            
+            [UIView animateWithDuration:1.0 animations:^{
+                loader.alpha = 0;
+            } completion:^(BOOL finished) {
+                [loader removeFromSuperview];
+            }];
+        }
+    } else {
+        label.text = @"X";
+        if (image) {
+            
+        } else {
+            loader = [[UIView alloc] initWithFrame:CGRectMake(160-25, 240-25, 50, 50)];
+            [loader setBackgroundColor:selectedColor];
+            loader.layer.cornerRadius = 25;
+            loader.clipsToBounds = YES;
+            [loader addSubview:label];
+            [loader setBackgroundColor:[UIColor redColor]];
+            
+            [selectedView addSubview:loader];
+            [selectedView bringSubviewToFront:loader];
+            
+            [UIView animateWithDuration:1.0 animations:^{
+                loader.alpha = 0;
+            } completion:^(BOOL finished) {
+                [loader removeFromSuperview];
+            }];
+        }
+    }
+    
+//    if (loader) {
+//        [UIView animateWithDuration:1.0 animations:^{
+//            loader.alpha = 0;
+//        } completion:^(BOOL finished) {
+//            [loader removeFromSuperview];
+//        }];
+//        
+//    }
+}
+
 
 
 @end
