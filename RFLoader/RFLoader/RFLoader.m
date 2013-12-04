@@ -15,6 +15,7 @@
     BOOL image;
     UIColor *selectedColor;
     UIView *selectedView;
+    NSString *selectedImageName;
 }
 
 static RFLoader *sharedInstance;
@@ -39,6 +40,7 @@ static RFLoader *sharedInstance;
     imageName = [NSString stringWithFormat:@"%@",imageName];
     loader = [[UIView alloc] initWithFrame:CGRectMake(160-25, 240-25, 50, 50)];
     selectedView = currentView;
+    selectedImageName = imageName;
     
     if (![imageName isEqualToString:@"(null)"]) {
         
@@ -121,6 +123,21 @@ static RFLoader *sharedInstance;
         label.text = @"✓";
         if (image) {
             
+            UIImage *customImage = [UIImage imageNamed:selectedImageName];
+            
+            UIImageView *customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+            customImageView.image = [self colorizeImage:customImage color:[UIColor greenColor]];;
+            [loader addSubview:customImageView];
+            [loader addSubview:label];
+            [selectedView addSubview:loader];
+            [selectedView bringSubviewToFront:loader];
+            
+            [UIView animateWithDuration:1.0 animations:^{
+                loader.alpha = 0;
+            } completion:^(BOOL finished) {
+                [loader removeFromSuperview];
+            }];
+            
         } else {
             loader = [[UIView alloc] initWithFrame:CGRectMake(160-25, 240-25, 50, 50)];
             [loader setBackgroundColor:selectedColor];
@@ -141,6 +158,21 @@ static RFLoader *sharedInstance;
     } else {
         label.text = @"X";
         if (image) {
+            UIImage *customImage = [UIImage imageNamed:selectedImageName];
+            
+            UIImageView *customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+            customImageView.image = [self colorizeImage:customImage color:[UIColor redColor]];;
+            [loader addSubview:customImageView];
+            [loader addSubview:label];
+            
+            [selectedView addSubview:loader];
+            [selectedView bringSubviewToFront:loader];
+            
+            [UIView animateWithDuration:1.0 animations:^{
+                loader.alpha = 0;
+            } completion:^(BOOL finished) {
+                [loader removeFromSuperview];
+            }];
             
         } else {
             loader = [[UIView alloc] initWithFrame:CGRectMake(160-25, 240-25, 50, 50)];
@@ -161,14 +193,26 @@ static RFLoader *sharedInstance;
         }
     }
     
-//    if (loader) {
-//        [UIView animateWithDuration:1.0 animations:^{
-//            loader.alpha = 0;
-//        } completion:^(BOOL finished) {
-//            [loader removeFromSuperview];
-//        }];
-//        
-//    }
+}
+
+-(UIImage *)colorizeImage:(UIImage *)baseImage color:(UIColor *)theColor {
+    UIGraphicsBeginImageContext(baseImage.size);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGRect area = CGRectMake(0, 0, baseImage.size.width, baseImage.size.height);
+    
+    CGContextScaleCTM(ctx, 1, -1);
+    CGContextTranslateCTM(ctx, 0, -area.size.height);
+    CGContextSaveGState(ctx);
+    CGContextClipToMask(ctx, area, baseImage.CGImage);
+    [theColor set];
+    CGContextFillRect(ctx, area);
+    CGContextRestoreGState(ctx);
+    CGContextSetBlendMode(ctx, kCGBlendModeMultiply);
+    CGContextDrawImage(ctx, area, baseImage.CGImage);
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 

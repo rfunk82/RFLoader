@@ -43,7 +43,7 @@
 
 - (IBAction)showLoaderPressed:(id)sender {
     
-    //Animation: VERTICAL, HORIZONTAL, MIX
+    //Animation: LoaderVertical, LoaderHorizontal, LoaderMix
     //Color: Use UIColor
     
     [customLoader showLoaderWithColor:[UIColor blueColor] andAnimation:LoaderMix andImage:nil onView:self.view];
