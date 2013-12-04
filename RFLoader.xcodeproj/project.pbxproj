@@ -21,6 +21,7 @@
 		C74CCC53184E75C800D23667 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74CCC35184E75C800D23667 /* UIKit.framework */; };
 		C74CCC5B184E75C800D23667 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74CCC59184E75C800D23667 /* InfoPlist.strings */; };
 		C74CCC5D184E75C800D23667 /* RFLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C74CCC5C184E75C800D23667 /* RFLoaderTests.m */; };
+		C74CCC68184E7FE400D23667 /* RFLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C74CCC67184E7FE400D23667 /* RFLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		C74CCC58184E75C800D23667 /* RFLoaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RFLoaderTests-Info.plist"; sourceTree = "<group>"; };
 		C74CCC5A184E75C800D23667 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C74CCC5C184E75C800D23667 /* RFLoaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RFLoaderTests.m; sourceTree = "<group>"; };
+		C74CCC66184E7FE400D23667 /* RFLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RFLoader.h; path = RFLoader/RFLoader.h; sourceTree = "<group>"; };
+		C74CCC67184E7FE400D23667 /* RFLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RFLoader.m; path = RFLoader/RFLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				C74CCC43184E75C800D23667 /* Main.storyboard */,
 				C74CCC46184E75C800D23667 /* ViewController.h */,
 				C74CCC47184E75C800D23667 /* ViewController.m */,
+				C74CCC66184E7FE400D23667 /* RFLoader.h */,
+				C74CCC67184E7FE400D23667 /* RFLoader.m */,
 				C74CCC49184E75C800D23667 /* Images.xcassets */,
 				C74CCC38184E75C800D23667 /* Supporting Files */,
 			);
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74CCC68184E7FE400D23667 /* RFLoader.m in Sources */,
 				C74CCC48184E75C800D23667 /* ViewController.m in Sources */,
 				C74CCC42184E75C800D23667 /* AppDelegate.m in Sources */,
 				C74CCC3E184E75C800D23667 /* main.m in Sources */,
