@@ -37,7 +37,8 @@
     
     //Animation: VERTICAL, HORIZONTAL, MIX
     //Color: Use UIColor
-    [self.view addSubview:[customLoader showLoaderWithColor:[UIColor blueColor] andAnimation:LoaderMix andImage:nil]];
+    
+    [customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:nil onView:self.view];
 }
 
 - (IBAction)removeLoaderPressed:(id)sender {

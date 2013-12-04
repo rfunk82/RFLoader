@@ -21,7 +21,7 @@ typedef enum Loader : NSUInteger {
  * @param Loader: LoaderHorizontal, LoaderVertical, or LoaderMix
  * @return UIView
  */
--(UIView *) showLoaderWithColor:(UIColor *)color andAnimation:(Loader)animation andImage:(NSString *)imageName;
+-(void) showLoaderWithColor:(UIColor *)color andAnimation:(Loader)animation andImage:(NSString *)imageName onView:(UIView *)currentView;
 /**
  * Remove loading animation
  */

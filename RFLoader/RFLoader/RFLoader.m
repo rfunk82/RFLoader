@@ -14,7 +14,20 @@
     UIView *loader;
 }
 
--(UIView *) showLoaderWithColor:(UIColor *)color andAnimation:(Loader)animation andImage:(NSString *)imageName {
+static RFLoader *sharedInstance;
+
++ (RFLoader*)getInstance {
+	
+	@synchronized(self) {
+		if(!sharedInstance) {
+            sharedInstance = [[RFLoader alloc] init];
+		}
+	}
+	
+	return sharedInstance;
+}
+
+-(void) showLoaderWithColor:(UIColor *)color andAnimation:(Loader)animation andImage:(NSString *)imageName onView:(UIView *)currentView {
     
     if (loader) {
         [loader removeFromSuperview];
@@ -69,7 +82,8 @@
         [loader.layer addAnimation:animationX forKey:@"SpinAnimationX"];
     }
     
-    return loader;
+    [currentView addSubview:loader];
+    [currentView bringSubviewToFront:loader];
         
 }
 
