@@ -19,9 +19,13 @@ You can customize the Animated Loader color (Provide a UIColor) and also you can
 6.  To remove Loader: 
         
     [customLoader removeLoader];
+
 or
+
     [customLoader removeLoaderWithSuccess:YES];
+    
 or
+
     [customLoader removeLoaderWithSuccess:NO];
 
 ![Animated Loader ](http://i.imgur.com/eSRa9Ox.png)
