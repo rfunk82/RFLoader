@@ -18,14 +18,14 @@ You can customize the Animated Loader color (Provide a UIColor) and also you can
 5.  If you prefer to use an image: [customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:@"icon.png" onView:self.view];
 6.  To remove Loader: 
         
+
+    `[customLoader removeLoader];`
+
+
+    `[customLoader removeLoaderWithSuccess:YES];`
     
-    [customLoader removeLoader];
 
-
-    [customLoader removeLoaderWithSuccess:YES];
-    
-
-    [customLoader removeLoaderWithSuccess:NO];
+    `[customLoader removeLoaderWithSuccess:NO];`
     
 
 ![Animated Loader ](http://i.imgur.com/eSRa9Ox.png)
