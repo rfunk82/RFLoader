@@ -46,8 +46,8 @@
     //Animation: LoaderVertical, LoaderHorizontal, LoaderMix
     //Color: Use UIColor
     
-   // [customLoader showLoaderWithColor:[UIColor blueColor] andAnimation:LoaderMix andImage:nil onView:self.view];
-    [customLoader showDotLoaderWithColor:[UIColor redColor] onView:self.view];
+    [customLoader showLoaderWithColor:[UIColor blueColor] andAnimation:LoaderMix andImage:nil onView:self.view];
+    //[customLoader showDotLoaderWithColor:[UIColor redColor] onView:self.view];
 }
 
 - (IBAction)removeLoaderPressed:(id)sender {
