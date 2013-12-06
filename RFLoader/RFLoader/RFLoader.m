@@ -96,47 +96,6 @@ static RFLoader *sharedInstance;
         
 }
 
--(void)showDotLoaderWithColor:(UIColor *)color onView:(UIView *)currentView{
-    
-    if (loader) {
-        [loader removeFromSuperview];
-    }
-    
-    selectedColor = color;
-    image = NO;
-    
-    loader = [[UIView alloc] initWithFrame:CGRectMake(85, 240-25, 165, 100)];
-    loader.backgroundColor = [UIColor clearColor];
-    
-    UIView *dot1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-    UIView *dot2 = [[UIView alloc] initWithFrame:CGRectMake(55, 0, 25, 25)];
-    UIView *dot3 = [[UIView alloc] initWithFrame:CGRectMake(110, 0, 25, 25)];
-    
-    dot1.layer.cornerRadius = 25;
-    dot2.layer.cornerRadius = 25;
-    dot3.layer.cornerRadius = 25;
-    
-    [dot1 setBackgroundColor:color];
-    [dot2 setBackgroundColor:color];
-    [dot3 setBackgroundColor:color];
-    
-    [loader addSubview:dot1];
-    [loader addSubview:dot2];
-    [loader addSubview:dot3];
-    
-    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionRepeat animations:^{
-        loader.alpha = 0;
-    } completion:^(BOOL finished) {
-        
-    }];
-
-    
-    [currentView addSubview:loader];
-    [currentView bringSubviewToFront:loader];
-    
-  
-}
-
 -(void)removeLoader {
     if (loader) {
         [UIView animateWithDuration:1.0 animations:^{
@@ -150,7 +109,7 @@ static RFLoader *sharedInstance;
 -(void)removeLoaderWithSuccess:(BOOL)success {
     
     UILabel  *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    [label setFont:[UIFont fontWithName:@"AmericanTypewriter-Bold" size:40]];
+    [label setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:40]];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor=[UIColor whiteColor];

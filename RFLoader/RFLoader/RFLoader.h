@@ -23,10 +23,6 @@ typedef enum Loader : NSUInteger {
  */
 -(void) showLoaderWithColor:(UIColor *)color andAnimation:(Loader)animation andImage:(NSString *)imageName onView:(UIView *)currentView;
 /**
- * Remove loading animation with success or failure
- */
--(void)showDotLoaderWithColor:(UIColor *)color onView:(UIView *)currentView;
-/**
  * Remove loading animation
  */
 -(void)removeLoader;
