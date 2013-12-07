@@ -37,8 +37,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Show Loader options
 - (IBAction)showLoaderWithImage:(id)sender {
     
+    //Provide an image name
     [customLoader showLoaderWithColor:[UIColor redColor] andAnimation:LoaderMix andImage:@"icon.png" onView:self.view];
 }
 
@@ -49,6 +51,7 @@
     [customLoader showLoaderWithColor:[UIColor blueColor] andAnimation:LoaderMix andImage:nil onView:self.view];
 }
 
+#pragma mark - Remove Loader options
 - (IBAction)removeLoaderPressed:(id)sender {
     [customLoader removeLoader];
 }
